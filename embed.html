@@ -139,7 +139,20 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const lightmode = urlParams.get("lightmode");
+    const lightmode = urlParams.get("color");
     const name = urlParams.get('name');
+
+    // only valid HTML-recognized colors are allowed, of course you can add some more, but the text might be hard to see
+    const colorList = [
+      "red",
+      "orange",
+      "yellow",
+      "green",
+      "dodgerblue",
+      "blue",
+      "purple",
+      "pink"
+    ]
 
     if (lightmode){
       console.log("AAAA");
@@ -157,6 +170,8 @@
 
 
 
+    } else if (colorList.includes(color)) {
+      document.body.style.backgroundColor = color;
     }
 
     const left = document.getElementById("prev")
